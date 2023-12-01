@@ -1,0 +1,13 @@
+open Core
+open Util
+
+let solve_1 () =
+  let input = Input.text in
+  failwith "Not implemented"
+;;
+
+
+let solve_2 () = solve_1 ();;
+
+Stdio.print_endline ("---Part 1---\n" ^ Printing.benchmarked ~f:solve_1);;
+Stdio.print_endline ("---Part 2---\n" ^ Printing.benchmarked ~f:solve_2);;

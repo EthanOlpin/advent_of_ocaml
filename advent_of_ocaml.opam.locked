@@ -1,0 +1,38 @@
+opam-version: "2.0"
+name: "advent_of_ocaml"
+version: "~dev"
+synopsis: ""
+description: "Advent of Code problems solved in OCaml"
+maintainer: "Ethan Olpin"
+authors: "EthanOlpin"
+license: "LICENSE"
+tags: ["ocaml" "advent of code"]
+homepage: "https://github.com/EthanOlpin/advent_of_ocaml"
+bug-reports: "https://github.com/EthanOlpin/advent_of_ocaml/issues"
+depends: [
+  "base-bigarray" {= "base"}
+  "base-domains" {= "base"}
+  "base-nnp" {= "base"}
+  "base-threads" {= "base"}
+  "base-unix" {= "base"}
+  "dune" {= "3.11.1"}
+  "ocaml" {= "5.1.0"}
+  "ocaml-base-compiler" {= "5.1.0"}
+  "ocaml-config" {= "3"}
+  "ocaml-options-vanilla" {= "1"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/EthanOlpin/advent_of_ocaml.git"

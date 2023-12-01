@@ -1,0 +1,5 @@
+(library
+ (name util)
+ (libraries core re)
+ (preprocess
+  (pps ppx_jane ppx_deriving.show)))
