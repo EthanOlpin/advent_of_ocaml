@@ -1,0 +1,10 @@
+let make_2 a b = a, b
+let make_2_rev a b = b, a
+let make_3 a b c = a, b, c
+let make_3_rev a b c = c, b, a
+let make_4 a b c d = a, b, c, d
+let make_4_rev a b c d = d, c, b, a
+let make_5 a b c d e = a, b, c, d, e
+let make_5_rev a b c d e = e, d, c, b, a
+let make_6 a b c d e f = a, b, c, d, e, f
+let make_6_rev a b c d e f = f, e, d, c, b, a

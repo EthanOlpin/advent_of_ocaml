@@ -5,11 +5,9 @@ let color_maxes line =
   let re = Re.Perl.compile_pat "\\d+ (blue|red|green)" in
   let color_maxes =
     Re.matches re line
-    |> List.map ~f:(fun m ->
-      Scanf.sscanf m "%i %s" (fun count color -> color, count))
+    |> List.map ~f:(fun m -> Scanf.sscanf m "%i %s" Tuples.make_2_rev)
     |> Hashtbl.Poly.of_alist_multi
-    |> Hashtbl.map ~f:(fun counts ->
-      List.max_elt counts ~compare:Int.compare |> Option.value_exn)
+    |> Hashtbl.map ~f:Lists.max_int_exn
   in
   ( Hashtbl.find_exn color_maxes "red"
   , Hashtbl.find_exn color_maxes "green"

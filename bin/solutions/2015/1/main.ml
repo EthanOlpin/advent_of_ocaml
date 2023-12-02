@@ -4,7 +4,7 @@ open Util
 let solve_1 () =
   Input.text
   |> Parsing.chars_of_string
-  |> Sequence.fold ~init:0 ~f:(fun acc ->
+  |> List.fold ~init:0 ~f:(fun acc ->
       function
       | '(' -> acc + 1
       | ')' -> acc - 1
@@ -15,7 +15,7 @@ let solve_1 () =
 let solve_2 () =
   Input.text
   |> Parsing.chars_of_string
-  |> Sequences.fold_until_i ~init:0 ~f:(fun i acc c ->
+  |> Lists.fold_until_i ~init:0 ~f:(fun i acc c ->
     match c with
     | '(' -> `Continue (acc + 1)
     | ')' -> if acc - 1 = -1 then `Stop (i + 1) else `Continue (acc - 1)

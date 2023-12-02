@@ -27,6 +27,10 @@ let min_max_exn seq ~compare =
   |> Option.value_exn ~message:"min_max_exn: empty sequence"
 ;;
 
+let max_int_exn seq = max_exn seq ~compare:Int.compare
+let min_int_exn seq = min_exn seq ~compare:Int.compare
+let min_max_int_exn seq = min_max_exn seq ~compare:Int.compare
+
 let fold_until_i seq ~init ~f =
   Sequence.fold_until
     seq
@@ -37,3 +41,6 @@ let fold_until_i seq ~init ~f =
       | `Stop acc -> Stop acc)
     ~finish:(fun _ -> failwith "fold_until_i: did not stop")
 ;;
+
+let sum seq = Sequence.fold seq ~init:0 ~f:( + )
+let product seq = Sequence.fold seq ~init:1 ~f:( * )
