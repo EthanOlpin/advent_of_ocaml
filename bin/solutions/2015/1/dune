@@ -5,9 +5,9 @@
   (with-stdout-to
    %{targets}
    (progn
-    (echo "let text = \"")
+    (echo "let text = {input_text_id|")
     (cat input.txt)
-    (echo "\";;")))))
+    (echo "|input_text_id};;")))))
 
 (executable
  (name main)
