@@ -3,7 +3,7 @@ opam-version: "2.0"
 description: "Advent of Code problems solved in OCaml"
 maintainer: ["Ethan Olpin"]
 authors: ["EthanOlpin"]
-license: "LICENSE"
+license: "MIT"
 tags: [
   "ocaml" "advent of code" "aoc" "janestreet" "core" "janestreet core" "2023"
 ]

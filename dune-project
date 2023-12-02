@@ -11,7 +11,7 @@
 
 (maintainers "Ethan Olpin")
 
-(license LICENSE)
+(license MIT)
 
 (package
  (name advent_of_ocaml)
