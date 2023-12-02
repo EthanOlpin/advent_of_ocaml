@@ -4,12 +4,17 @@ description: "Advent of Code problems solved in OCaml"
 maintainer: ["Ethan Olpin"]
 authors: ["EthanOlpin"]
 license: "LICENSE"
-tags: ["ocaml" "advent of code"]
+tags: [
+  "ocaml" "advent of code" "aoc" "janestreet" "core" "janestreet core" "2023"
+]
 homepage: "https://github.com/EthanOlpin/advent_of_ocaml"
 bug-reports: "https://github.com/EthanOlpin/advent_of_ocaml/issues"
 depends: [
   "ocaml"
   "dune" {>= "3.11"}
+  "core"
+  "re"
+  "ppx_deriving"
   "odoc" {with-doc}
 ]
 build: [

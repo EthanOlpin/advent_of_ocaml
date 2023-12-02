@@ -17,6 +17,6 @@
  (name advent_of_ocaml)
  (allow_empty)
  (description "Advent of Code problems solved in OCaml")
- (depends ocaml dune)
+ (depends ocaml dune core re ppx_deriving)
  (tags
   (ocaml "advent of code")))
