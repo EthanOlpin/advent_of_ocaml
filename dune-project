@@ -19,4 +19,4 @@
  (description "Advent of Code problems solved in OCaml")
  (depends ocaml dune core re ppx_deriving)
  (tags
-  (ocaml "advent of code")))
+  (ocaml "advent of code" aoc janestreet core "janestreet core" 2023)))
