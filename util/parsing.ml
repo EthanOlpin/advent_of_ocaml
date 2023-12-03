@@ -12,6 +12,10 @@ let digits_of_string s =
 
 let chars_of_string s = String.to_list s
 
+let char_grid_of_string s =
+  String.split_lines s |> List.to_array |> Array.map ~f:String.to_array
+;;
+
 let split_double_newline s =
   let re = Re.Perl.compile_pat {|(\n\n)|} in
   Re.split re s
