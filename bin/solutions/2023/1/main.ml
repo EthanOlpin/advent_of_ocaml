@@ -1,10 +1,13 @@
 open Core
 open Util
 
-let solve_1 () =
-  String.split_lines Input.text
+let solve_1 input =
+  String.split_lines input
   |> List.fold ~init:0 ~f:(fun sum line ->
-    let digits = Parsing.digits_of_string line in
+    let digits =
+      Parsing.digits_of_string line
+      |> Debugging.with_printed_list ~to_string:Int.to_string
+    in
     let num = (10 * List.hd_exn digits) + List.last_exn digits in
     sum + num)
   |> Int.to_string
@@ -34,8 +37,8 @@ let filter_scan l ~f =
   aux [] l
 ;;
 
-let solve_2 () =
-  String.split_lines Input.text
+let solve_2 input =
+  String.split_lines input
   |> List.fold ~init:0 ~f:(fun sum line ->
     let chars = String.to_list line in
     let digits = filter_scan chars ~f:digit_of_chars in
@@ -44,5 +47,15 @@ let solve_2 () =
   |> Int.to_string
 ;;
 
-Stdio.print_endline ("---Part 1---\n" ^ Printing.benchmarked ~f:solve_1);;
-Stdio.print_endline ("---Part 2---\n" ^ Printing.benchmarked ~f:solve_2)
+Printing.output_solution
+  ~part:1
+  ~solve:solve_1
+  ~input:Input.text
+  ~example_input:Example_input.text
+;;
+
+Printing.output_solution
+  ~part:2
+  ~solve:solve_2
+  ~input:Input.text
+  ~example_input:Example_input.text

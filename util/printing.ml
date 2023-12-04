@@ -45,5 +45,23 @@ let benchmarked ~f =
   let result = f () in
   let stop = Time_float.now () in
   let duration = Time_float.diff stop start |> Time_float.Span.to_sec in
-  Printf.sprintf "Output:\n%s\n\nFinished In: %fs\n" result duration
+  result, duration
+;;
+
+let output_solution ~part ~solve ~input ~example_input =
+  let example_result, example_duration =
+    benchmarked ~f:(fun () -> solve example_input)
+  in
+  let result, duration = benchmarked ~f:(fun () -> solve input) in
+  Stdio.printf
+    "---Part %i---\n\
+     Example (Finished in %.4f s):\n\
+     %s\n\
+     Result (Finished in %.4f s):\n\
+     %s\n"
+    part
+    example_duration
+    example_result
+    duration
+    result
 ;;

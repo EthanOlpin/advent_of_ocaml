@@ -36,8 +36,8 @@ let get_adjacent_number_positions arr (r, c) =
     Option.some_if (Char.is_digit arr.(r).(c)) (r, find_num_start arr.(r) c))
 ;;
 
-let solve_1 () =
-  let arr = Parsing.char_grid_of_string Input.text in
+let solve_1 input =
+  let arr = Parsing.char_grid_of_string input in
   let symbol_positions = get_symbol_positions arr in
   let symbol_adjacent_number_locs =
     List.concat_map symbol_positions ~f:(get_adjacent_number_positions arr)
@@ -50,8 +50,8 @@ let solve_1 () =
   Lists.sum symbol_adjacent_numbers |> Int.to_string
 ;;
 
-let solve_2 () =
-  let arr = Parsing.char_grid_of_string Input.text in
+let solve_2 input =
+  let arr = Parsing.char_grid_of_string input in
   let gear_positions = get_gear_positions arr in
   let gear_adjacent_number_locs =
     List.map gear_positions ~f:(fun pos ->
@@ -66,5 +66,15 @@ let solve_2 () =
   Lists.sum gear_ratios |> Int.to_string
 ;;
 
-Stdio.print_endline ("---Part 1---\n" ^ Printing.benchmarked ~f:solve_1);;
-Stdio.print_endline ("---Part 2---\n" ^ Printing.benchmarked ~f:solve_2)
+Printing.output_solution
+  ~part:1
+  ~solve:solve_1
+  ~input:Input.text
+  ~example_input:Example_input.text
+;;
+
+Printing.output_solution
+  ~part:2
+  ~solve:solve_2
+  ~input:Input.text
+  ~example_input:Example_input.text

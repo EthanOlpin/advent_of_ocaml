@@ -14,23 +14,31 @@ let color_maxes line =
   , Hashtbl.find_exn color_maxes "blue" )
 ;;
 
-let solve_1 () =
-  Input.text
-  |> String.split_lines
+let solve_1 input =
+  String.split_lines input
   |> List.foldi ~init:0 ~f:(fun i acc line ->
     let red_max, green_max, blue_max = color_maxes line in
     if red_max > 12 || green_max > 13 || blue_max > 14 then acc else 1 + i + acc)
   |> Int.to_string
 ;;
 
-let solve_2 () =
-  Input.text
-  |> String.split_lines
+let solve_2 input =
+  String.split_lines input
   |> List.fold ~init:0 ~f:(fun acc line ->
     let red_max, green_max, blue_maxes = color_maxes line in
     (red_max * green_max * blue_maxes) + acc)
   |> Int.to_string
 ;;
 
-Stdio.print_endline ("---Part 1---\n" ^ Printing.benchmarked ~f:solve_1);;
-Stdio.print_endline ("---Part 2---\n" ^ Printing.benchmarked ~f:solve_2)
+Printing.output_solution
+  ~part:1
+  ~solve:solve_1
+  ~input:Input.text
+  ~example_input:Example_input.text
+;;
+
+Printing.output_solution
+  ~part:2
+  ~solve:solve_2
+  ~input:Input.text
+  ~example_input:Example_input.text

@@ -15,7 +15,7 @@ let with_printed_char c =
   c
 ;;
 
-let with_printed_list l to_string =
+let with_printed_list l ~to_string =
   List.map l ~f:to_string |> String.concat ~sep:"; " |> Stdio.printf "[%s]\n";
   l
 ;;
