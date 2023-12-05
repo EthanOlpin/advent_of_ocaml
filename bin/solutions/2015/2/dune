@@ -1,0 +1,27 @@
+(rule
+ (targets input.ml)
+ (deps input.txt)
+ (action
+  (with-stdout-to
+   %{targets}
+   (progn
+    (echo "let text = {input_text_id|")
+    (cat input.txt)
+    (echo "|input_text_id};;")))))
+
+(rule
+ (targets example_input.ml)
+ (deps example_input.txt)
+ (action
+  (with-stdout-to
+   %{targets}
+   (progn
+    (echo "let text = {exampe_input_text_id|")
+    (cat example_input.txt)
+    (echo "|exampe_input_text_id};;")))))
+
+(executable
+ (name main)
+ (libraries core util)
+ (preprocess
+  (pps ppx_jane ppx_deriving.std ppx_deriving.show)))
