@@ -1,4 +1,4 @@
-# Advent of Ocaml
+# Advent of OCaml
 
 [Advent of Code](https://adventofcode.com/) problems solved in OCaml using the [Jane Street Core alternative standard library](https://opensource.janestreet.com/core/)
 
