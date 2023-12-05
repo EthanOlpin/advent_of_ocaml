@@ -1,3 +1,5 @@
 _build/
 .vscode/
 .zsh/
+*.install
+bin/solutions/**/input.txt
