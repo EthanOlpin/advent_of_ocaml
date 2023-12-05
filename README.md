@@ -20,11 +20,16 @@ Solutions may be inefficient, anti-idiomatic, hot-garbage, etc. refer to them at
     ```bash
     opam install . --locked
     ```
-6. Make the runner script executable
+7. Export your Advent of Code session ID (the `session` cookie when signed into adventofcode.com) to fetch your input 
+
+    Alternatively, manually add an `input.txt` file to `bin/solutions/<year>/<day>/`
+    ```
+    export AOC_SESSION_ID="<session ID>"
+7. Make the runner script executable
     ```bash
     chmod +x ./run.sh
     ```
-7. Run a solution
+8. Run a solution
     ```bash
     ./run.sh <year> <day>
     ```
