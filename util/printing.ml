@@ -50,7 +50,9 @@ let benchmarked ~f =
 
 let output_solution ~part ~solve ~input ~example_input =
   let example_result, example_duration =
-    benchmarked ~f:(fun () -> solve example_input)
+    benchmarked ~f:(fun () ->
+      try solve example_input with
+      | e -> "Solution failed for example input with: " ^ Exn.to_string e)
   in
   let result, duration = benchmarked ~f:(fun () -> solve input) in
   Stdio.printf
