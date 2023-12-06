@@ -5,6 +5,11 @@ let ints_of_string s =
   Re.matches re s |> List.map ~f:Int.of_string
 ;;
 
+let int_of_sparse_string s =
+  let re = Re.Perl.compile_pat {|-?\d+|} in
+  Re.matches re s |> String.concat |> Int.of_string
+;;
+
 let digits_of_string s =
   let re = Re.Perl.compile_pat {|\d|} in
   Re.matches re s |> List.map ~f:Int.of_string
