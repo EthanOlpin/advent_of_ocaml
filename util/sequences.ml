@@ -44,3 +44,10 @@ let fold_until_i seq ~init ~f =
 
 let sum seq = Sequence.fold seq ~init:0 ~f:( + )
 let product seq = Sequence.fold seq ~init:1 ~f:( * )
+
+let get_counts_map seq m =
+  Sequence.fold seq ~init:(Map.empty m) ~f:(fun counts_map x ->
+    Map.update counts_map x ~f:(function
+      | None -> 1
+      | Some count -> count + 1))
+;;

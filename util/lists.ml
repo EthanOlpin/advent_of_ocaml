@@ -17,3 +17,5 @@ let fold_until_i l ~init ~f =
 
 let sum l = Sequence.of_list l |> Sequences.sum
 let product l = Sequence.of_list l |> Sequences.product
+let get_counts_map l m = Sequences.get_counts_map (Sequence.of_list l) m
+let sort_desc l ~compare = List.sort l ~compare:(fun a b -> compare b a)
