@@ -4,10 +4,7 @@ open Util
 let solve_1 input =
   String.split_lines input
   |> List.fold ~init:0 ~f:(fun sum line ->
-    let digits =
-      Parsing.digits_of_string line
-      |> Debugging.with_printed_list ~to_string:Int.to_string
-    in
+    let digits = Parsing.digits_of_string line in
     let num = (10 * List.hd_exn digits) + List.last_exn digits in
     sum + num)
   |> Int.to_string
