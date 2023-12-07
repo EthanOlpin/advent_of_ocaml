@@ -16,4 +16,4 @@ fi
 
 base_dir="./bin/solutions"
 
-curl "https://adventofcode.com/$year/day/$day/input" -H "Cookie: session=$AOC_SESSION_ID" > "$base_dir/$year/$day/input.txt"
+echo -n "$(curl -s "https://adventofcode.com/$year/day/$day/input" -H "Cookie: session=$AOC_SESSION_ID")" >  "$base_dir/$year/$day/input.txt"
