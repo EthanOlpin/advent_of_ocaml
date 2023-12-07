@@ -16,9 +16,9 @@
   (with-stdout-to
    %{targets}
    (progn
-    (echo "let text = {exampe_input_text_id|")
+    (echo "let text = {example_input_text_id|")
     (cat example_input.txt)
-    (echo "|exampe_input_text_id};;")))))
+    (echo "|example_input_text_id};;")))))
 
 (executable
  (name main)
