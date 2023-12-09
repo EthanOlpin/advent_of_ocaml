@@ -3,3 +3,4 @@ _build/
 .zsh/
 *.install
 bin/solutions/**/input.txt
+bin/solutions/**/example_input.txt

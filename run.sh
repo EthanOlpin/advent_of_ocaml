@@ -15,9 +15,15 @@ else
 fi
 
 input_file="./bin/solutions/$year/$day/input.txt"
+example_input_file="./bin/solutions/$year/$day/example_input.txt"
 if [ ! -f "$input_file" ] || [ ! -s "$input_file" ]; then
     echo "Fetching input for $year day $day..."
     ./fetch-input.sh "$year" "$day"
+fi
+
+if [ ! -f "$example_input_file" ]; then
+    echo "Creating empty example input file for $year day $day..."
+    touch "$example_input_file"
 fi
 
 dune exec bin/solutions/$year/$day/main.exe --release
