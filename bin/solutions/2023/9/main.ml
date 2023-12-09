@@ -13,7 +13,7 @@ let predict_left_value history =
   let rec aux acc = function
     | [] -> failwith "Not enough data"
     | x :: tl when List.for_all tl ~f:(Int.equal x) -> x + acc
-    | x :: tl as l -> aux (x + acc) (differences l)
+    | x :: _ as l -> aux (x + acc) (differences l)
   in
   aux 0 history
 ;;

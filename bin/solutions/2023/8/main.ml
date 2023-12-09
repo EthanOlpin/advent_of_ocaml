@@ -2,8 +2,6 @@ open Core
 open Util
 
 module Network = struct
-  type t = (string * string) Map.M(String).t
-
   let of_string s =
     String.split_lines s
     |> List.fold

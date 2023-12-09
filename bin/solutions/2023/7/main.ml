@@ -90,7 +90,7 @@ let get_winnings input ~wildcard_joker =
   |> List.map ~f:parse_hand_and_bid
   |> List.sort ~compare:(fun (h1, _) (h2, _) ->
     compare_hands h1 h2 ~wildcard_joker)
-  |> List.foldi ~init:0 ~f:(fun i acc (h1, bid) ->
+  |> List.foldi ~init:0 ~f:(fun i acc (_, bid) ->
     let rank = i + 1 in
     acc + (rank * bid))
   |> Int.to_string
