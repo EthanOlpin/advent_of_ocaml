@@ -5,7 +5,11 @@
 Solutions may be inefficient, anti-idiomatic, hot-garbage, etc. refer to them at your own risk.
 
 ## Running the Solutions
+### Prerequisites
+- [opam](https://opam.ocaml.org/)
+- Linux / WSL
 
+### Instructions
 1. Clone the repo
 2. Switch to the new directory
 3. Create a new switch 
