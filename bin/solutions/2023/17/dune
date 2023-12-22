@@ -22,6 +22,6 @@
 
 (executable
  (name main)
- (libraries core util core_kernel.pairing_heap)
+ (libraries core util)
  (preprocess
   (pps ppx_jane ppx_deriving.std ppx_deriving.show)))
