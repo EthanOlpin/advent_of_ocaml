@@ -73,10 +73,10 @@ let solve_2 input =
       | 0, c when c = cols - 1 -> [ 0, -1; 1, 0 ]
       | r, c when r = rows - 1 && c = cols - 1 -> [ 0, -1; -1, 0 ]
       (* Edges *)
-      | r, 0 -> [ 0, 1 ]
-      | r, c when r = rows - 1 -> [ 0, -1 ]
-      | 0, c -> [ 1, 0 ]
-      | r, c when c = cols - 1 -> [ -1, 0 ]
+      | _, 0 -> [ 0, 1 ]
+      | r, _ when r = rows - 1 -> [ 0, -1 ]
+      | 0, _ -> [ 1, 0 ]
+      | _, c when c = cols - 1 -> [ -1, 0 ]
       | _ -> failwith "Tried to get direction for non-edge"
     in
     List.fold dirs ~init:max_dist ~f:(fun max_dist dir ->

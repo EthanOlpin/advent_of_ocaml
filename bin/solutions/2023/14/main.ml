@@ -49,7 +49,7 @@ let perform_n_cycles n grid =
 
 let compute_load grid =
   let num_cols = List.length (List.hd_exn grid) in
-  List.foldi grid ~init:0 ~f:(fun r acc row ->
+  List.foldi grid ~init:0 ~f:(fun _ acc row ->
     List.foldi row ~init:acc ~f:(fun c acc ch ->
       if Char.(ch = 'O') then acc + (num_cols - c) else acc))
 ;;

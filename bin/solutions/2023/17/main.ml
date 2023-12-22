@@ -61,7 +61,7 @@ module State = struct
   include Comparator.Make (T)
 end
 
-let find_shortest_path grid ~is_goal ~get_succesors =
+let find_shortest_path ~is_goal ~get_succesors =
   let compare (d1, _) (d2, _) = Int.compare d1 d2 in
   let rec loop heap visited =
     let (dist, state), heap = Heap.pop_exn heap in
@@ -83,14 +83,14 @@ let solve_1 input =
   let grid = parse_digit_grid input in
   let get_succesors = State.get_successors ~max_steps:3 grid in
   let is_goal = State.is_goal grid in
-  find_shortest_path grid ~is_goal ~get_succesors |> Int.to_string
+  find_shortest_path ~is_goal ~get_succesors |> Int.to_string
 ;;
 
 let solve_2 input =
   let grid = parse_digit_grid input in
   let get_succesors = State.get_successors ~min_steps:4 ~max_steps:10 grid in
   let is_goal = State.is_goal ~min_steps:4 grid in
-  find_shortest_path grid ~is_goal ~get_succesors |> Int.to_string
+  find_shortest_path ~is_goal ~get_succesors |> Int.to_string
 ;;
 
 Printing.output_solution
